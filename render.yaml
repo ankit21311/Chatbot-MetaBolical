@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: medical-chatbot
+    env: docker
+    region: oregon
+    plan: standard
+    branch: main
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: PORT
+        value: 10000
+    disk:
+      name: data
+      mountPath: /app/data
+      sizeGB: 10
